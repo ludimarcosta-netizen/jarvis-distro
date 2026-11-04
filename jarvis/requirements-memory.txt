@@ -1,0 +1,2 @@
+# Busca semântica local opcional (CPU/ONNX).
+fastembed==0.9.0

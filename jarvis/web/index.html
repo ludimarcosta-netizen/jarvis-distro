@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="jarvis-token" content="__JARVIS_TOKEN__">
+  <title>Reuniões · Jarvis</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true"></span>Reuniões <span class="brand-sub">Jarvis</span></div>
+    <label class="search">
+      <span class="sr-only">Buscar reunião</span>
+      <input id="search" type="search" placeholder="Buscar por título ou participante" autocomplete="off">
+    </label>
+  </header>
+
+  <section id="prompt" class="prompt" hidden aria-live="assertive"></section>
+
+  <main class="layout">
+    <nav id="tree" class="tree" aria-label="Reuniões por data">
+      <p class="muted pad">Carregando reuniões…</p>
+    </nav>
+    <article id="detail" class="detail" aria-live="polite">
+      <div class="empty">
+        <h1>Selecione uma reunião</h1>
+        <p class="muted">As reuniões ficam agrupadas por ano, mês e dia. Abra uma para revisar a transcrição,
+          definir os participantes, enviar trechos para outra reunião ou juntar reuniões.</p>
+      </div>
+    </article>
+  </main>
+
+  <dialog id="move-dialog" aria-labelledby="move-title">
+    <form method="dialog" id="move-form">
+      <h2 id="move-title">Enviar falas para outra reunião</h2>
+      <p class="muted" id="move-count"></p>
+      <fieldset>
+        <legend class="sr-only">Destino</legend>
+        <label class="radio"><input type="radio" name="dest" value="existing" checked> Reunião existente</label>
+        <select id="move-target" aria-label="Reunião de destino"></select>
+        <label class="radio"><input type="radio" name="dest" value="new"> Nova reunião</label>
+        <input id="move-new-title" type="text" placeholder="Título da nova reunião (opcional)" maxlength="200" disabled>
+      </fieldset>
+      <p class="hint">As atas das reuniões envolvidas são refeitas depois do envio.</p>
+      <div class="dialog-actions">
+        <button type="button" class="btn" data-close>Cancelar</button>
+        <button type="submit" class="btn btn-primary" id="move-confirm">Enviar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="merge-dialog" aria-labelledby="merge-title">
+    <form method="dialog" id="merge-form">
+      <h2 id="merge-title">Juntar reuniões</h2>
+      <p class="muted">A reunião escolhida será incorporada a esta: falas e participantes vêm para cá e ela deixa de existir.</p>
+      <select id="merge-target" aria-label="Reunião a incorporar"></select>
+      <p class="hint">A ata desta reunião é refeita com todas as falas.</p>
+      <div class="dialog-actions">
+        <button type="button" class="btn" data-close>Cancelar</button>
+        <button type="submit" class="btn btn-primary">Juntar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+# Catálogo de recursos do instalador. Tudo opcional, exceto o que tem `obrigatorio = true`.
+#
+# id          chave usada no estado
+# depende     recursos que entram junto (instalados antes)
+# copiar      pastas/arquivos do repositório -> destino relativo ao HERMES_HOME (marcadores preenchidos)
+# etapas      passos executados em ordem; "copiar" é o passo genérico de cópia
+
+[[recurso]]
+id = "base"
+nome = "Núcleo do Jarvis"
+descricao = "Código do Jarvis, tema visual e persona padrão."
+obrigatorio = true
+copiar = [
+  { de = "jarvis", para = "jarvis" },
+  { de = "skins", para = "skins" },
+]
+etapas = ["copiar"]
+
+[[recurso]]
+id = "ia"
+nome = "IA principal"
+descricao = "Escolhe o provedor de IA (assistente do Hermes) e testa uma resposta."
+obrigatorio = true
+depende = ["base"]
+etapas = ["ia"]
+
+[[recurso]]
+id = "face"
+nome = "Face desktop"
+descricao = "App de janela com a face do Jarvis, chat e cartões (recompila o app, precisa de alguns minutos)."
+depende = ["base"]
+copiar = [
+  { de = "desktop-plugins/gemini-live-bridge", para = "desktop-plugins/gemini-live-bridge" },
+  { de = "plugins/gemini-live-bridge", para = "plugins/gemini-live-bridge" },
+]
+etapas = ["copiar", "patch", "face"]
+
+[[recurso]]
+id = "voz"
+nome = "Voz ao vivo"
+descricao = "Fala e escuta: Whisper (STT), Kokoro/Piper (TTS) e palavra de ativação. Usa GPU NVIDIA se houver."
+depende = ["base"]
+copiar = [{ de = "plugins/gemini-live-bridge", para = "plugins/gemini-live-bridge" }]
+etapas = ["copiar", "voz"]
+
+[[recurso]]
+id = "reunioes"
+nome = "Reuniões"
+descricao = "Gravação contínua, ata automática e identificação de quem falou (exige cadastrar as vozes)."
+depende = ["voz"]
+copiar = [
+  { de = "voice_identity", para = "voice_identity" },
+  { de = "skills/productivity/jarvis-meetings", para = "skills/productivity/jarvis-meetings" },
+]
+etapas = ["copiar", "reunioes"]
+
+[[recurso]]
+id = "cerebro"
+nome = "Cerebro (memória)"
+descricao = "Cofre de notas em Markdown compartilhado com as IAs; Obsidian opcional."
+depende = ["base"]
+etapas = ["cerebro"]
+
+[[recurso]]
+id = "telegram"
+nome = "Telegram"
+descricao = "Conversar com o Jarvis por um bot do Telegram."
+depende = ["ia"]
+etapas = ["telegram"]
+
+[[recurso]]
+id = "whatsapp"
+nome = "WhatsApp"
+descricao = "Envio e leitura pelo Evolution API (precisa do Docker Desktop)."
+depende = ["ia"]
+copiar = [
+  { de = "skills/productivity/whatsapp-automation", para = "skills/productivity/whatsapp-automation" },
+  { de = "skills/productivity/whatsapp-evolution", para = "skills/productivity/whatsapp-evolution" },
+]
+etapas = ["copiar", "whatsapp"]
+
+[[recurso]]
+id = "pdf"
+nome = "Assinatura de PDF"
+descricao = "Assinar PDFs com certificado digital local."
+depende = ["base"]
+copiar = [
+  { de = "skills/productivity/pdf-signing", para = "skills/productivity/pdf-signing" },
+  { de = "skills/productivity/pdf-signing-local", para = "skills/productivity/pdf-signing-local" },
+]
+etapas = ["copiar", "pdf"]
+
+[[recurso]]
+id = "prefeitura"
+nome = "Skills da prefeitura"
+descricao = "Redação oficial e licitações, com numeração de ofícios própria."
+depende = ["base"]
+copiar = [{ de = "skills/prefeitura", para = "skills/prefeitura" }]
+etapas = ["copiar", "prefeitura"]
+
+[[recurso]]
+id = "google"
+nome = "Google (Agenda e Gmail)"
+descricao = "Acesso à agenda e ao e-mail com OAuth próprio."
+depende = ["ia"]
+etapas = ["google"]
+
+[[recurso]]
+id = "spotify"
+nome = "Spotify"
+descricao = "Tocar músicas pela voz ou pelo chat."
+depende = ["base"]
+etapas = ["spotify"]
+
+[[recurso]]
+id = "navegador"
+nome = "Navegador controlado"
+descricao = "Chrome dedicado que o Jarvis consegue operar."
+depende = ["base"]
+etapas = ["patch", "navegador"]
+
+[[recurso]]
+id = "antigravity"
+nome = "Antigravity (agy)"
+descricao = "Usar a conta do Antigravity como provedor de IA."
+depende = ["base"]
+copiar = [{ de = "plugins/antigravity-oauth", para = "plugins/antigravity-oauth" }]
+etapas = ["copiar", "antigravity"]
+
+[[recurso]]
+id = "homeassistant"
+nome = "Home Assistant"
+descricao = "Controlar dispositivos da casa/escritório pelo Home Assistant."
+depende = ["base"]
+copiar = [{ de = "plugins/homeassistant", para = "plugins/homeassistant" }]
+etapas = ["copiar", "homeassistant"]
+
+[[recurso]]
+id = "skills_extras"
+nome = "Pacote de skills extras"
+descricao = "Vídeo, mídia, redes sociais, abrir programas, aprendizado de procedimentos e outras."
+depende = ["base"]
+copiar = [
+  { de = "skills/productivity/abrir", para = "skills/productivity/abrir" },
+  { de = "skills/productivity/jarvis-procedure-learning", para = "skills/productivity/jarvis-procedure-learning" },
+  { de = "skills/productivity/goias-election-reporting", para = "skills/productivity/goias-election-reporting" },
+  { de = "skills/jarvis-video-overlays", para = "skills/jarvis-video-overlays" },
+  { de = "skills/media", para = "skills/media" },
+  { de = "skills/creative", para = "skills/creative" },
+  { de = "skills/social-media", para = "skills/social-media" },
+  { de = "skills/software-development", para = "skills/software-development" },
+]
+etapas = ["copiar"]
+
+[[recurso]]
+id = "agendamentos"
+nome = "Lembrete diário"
+descricao = "Resumo diário das pendências das reuniões no Telegram (o autoinício fica em cada recurso)."
+depende = ["telegram"]
+etapas = ["agendamentos"]

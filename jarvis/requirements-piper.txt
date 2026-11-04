@@ -1,0 +1,3 @@
+# Optional fixed-voice TTS runtime for voice_mode.json: tts_engine=piper.
+piper-tts==1.8.0
+scipy==1.17.1

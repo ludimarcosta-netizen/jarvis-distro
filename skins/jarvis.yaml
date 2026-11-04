@@ -1,0 +1,76 @@
+name: jarvis
+description: "J.A.R.V.I.S. Executive Stark Industries Theme"
+colors:
+  banner_border: "#00f5ff"
+  banner_title: "#00f5ff"
+  banner_accent: "#38bdf8"
+  banner_dim: "#64748b"
+  banner_text: "#e2e8f0"
+  ui_accent: "#00f5ff"
+  ui_label: "#38bdf8"
+  ui_ok: "#10b981"
+  ui_error: "#ef4444"
+  ui_warn: "#f59e0b"
+  prompt: "#38bdf8"
+  input_rule: "#00f5ff"
+  response_border: "#0284c7"
+  status_bar_bg: "#090d14"
+  status_bar_text: "#94a3b8"
+  status_bar_strong: "#00f5ff"
+  status_bar_dim: "#475569"
+  status_bar_good: "#10b981"
+  status_bar_warn: "#f59e0b"
+  status_bar_bad: "#ef4444"
+  status_bar_critical: "#dc2626"
+  session_label: "#38bdf8"
+  session_border: "#1e293b"
+  completion_menu_bg: "#0f172a"
+  completion_menu_current_bg: "#1e293b"
+  selection_bg: "#1e293b"
+  shell_dollar: "#00f5ff"
+  voice_status_bg: "#090d14"
+spinner:
+  waiting_faces: ["(◈)", "(◉)", "(◆)", "(◎)"]
+  thinking_faces: ["(⚡)", "(⌁)", "(◈)", "(◉)"]
+  thinking_verbs:
+    - "processando"
+    - "computando"
+    - "sintetizando"
+    - "analisando"
+    - "orquestrando"
+    - "sincronizando"
+  wings:
+    - ["⟪◈", "◈⟫"]
+    - ["⟪⚡", "⚡⟫"]
+    - ["⟪◆", "◆⟫"]
+branding:
+  agent_name: "J.A.R.V.I.S."
+  welcome: "J.A.R.V.I.S. Operacional · Ao seu dispor, senhor __JARVIS_USER__."
+  goodbye: "Desconectando interface J.A.R.V.I.S. Até logo, senhor __JARVIS_USER__."
+  response_label: " ◈ J.A.R.V.I.S. "
+  prompt_symbol: "◈"
+  help_header: "(◈) J.A.R.V.I.S. — Comandos do Sistema"
+tool_prefix: "┊"
+banner_logo: |
+  [bold #00f5ff]   ██╗  █████╗  ██████╗  ██╗   ██╗ ██╗ ███████╗       █████╗   ██████╗  ███████╗ ███╗   ██╗ ████████╗[/]
+  [bold #00f5ff]   ██║ ██╔══██╗ ██╔══██╗ ██║   ██║ ██║ ██╔════╝      ██╔══██╗ ██╔════╝  ██╔════╝ ████╗  ██║ ╚══██╔══╝[/]
+  [#38bdf8]   ██║ ███████║ ██████╔╝ ██║   ██║ ██║ ███████╗█████╗███████║ ██║  ███╗ █████╗   ██╔██╗ ██║    ██║   [/]
+  [#38bdf8]██ ██║ ██╔══██║ ██╔══██╗ ╚██╗ ██╔╝ ██║ ╚════██║╚════╝██╔══██║ ██║   ██║ ██╔══╝   ██║╚██╗██║    ██║   [/]
+  [#0284c7]╚████║ ██║  ██║ ██║  ██║  ╚████╔╝  ██║ ███████║      ██║  ██║ ╚██████╔╝ ███████╗ ██║ ╚████║    ██║   [/]
+  [#0284c7] ╚═══╝ ╚═╝  ╚═╝ ╚═╝  ╚═╝   ╚═══╝   ╚═╝ ╚══════╝      ╚═╝  ╚═╝  ╚═════╝  ╚══════╝ ╚═╝  ╚═══╝    ╚═╝   [/]
+banner_hero: |
+  [#334155]               .────────[#00f5ff] ARC [#334155]────────.               [/]
+  [#475569]            .──'       [bold #00f5ff]╭─────╮[/][#475569]       '──.            [/]
+  [#475569]          .─'   .─────.[bold #00f5ff]│  ◆  │[/][#475569].─────.   '─.          [/]
+  [#64748b]         ╱     ╱ ░░░░ ╲[bold #00f5ff]╰─────╯[/][#64748b]╱ ░░░░ ╲     ╲         [/]
+  [#334155]       ┌┴──────┴───────┴─────┴───────┴──────┴┐       [/]
+  [#475569]       │  [#00f5ff]══[/]   [bold #38bdf8]╭─────╮[/]         [bold #38bdf8]╭─────╮[/]   [#00f5ff]══[/]  │       [/]
+  [#475569]       │  [#00f5ff]░░░[/]  [bold #38bdf8]│  [bold #ffffff]◉[/][bold #38bdf8]  │[/]         [bold #38bdf8]│  [bold #ffffff]◉[/][bold #38bdf8]  │[/]  [#00f5ff]░░░[/]  │       [/]
+  [#475569]       │  [#00f5ff]░░░[/]  [bold #38bdf8]╰─────╯[/]   [#0284c7]──-──[/]   [bold #38bdf8]╰─────╯[/]  [#00f5ff]░░░[/]  │       [/]
+  [#334155]       └┬──────┬─────────────────────┬──────┬┘       [/]
+  [#475569]        │ [#00f5ff]╲[/]    │    [bold #00f5ff]═════════════[/]    │    [#00f5ff]╱[/] │        [/]
+  [#475569]         ╲ [#00f5ff]╲[/]   │    [#38bdf8]─────────────[/]    │   [#00f5ff]╱[/] ╱         [/]
+  [#475569]          ╲ [#00f5ff]╲[/]  │      [#0284c7]─────────[/]      │  [#00f5ff]╱[/] ╱          [/]
+  [#334155]           '─. ╰─────────────────────╯ .─'           [/]
+  [#1e293b]               │       [#475569]█  █  █[/]       │               [/]
+  [#1e293b]               │       [#334155]█  █  █[/]       │               [/]

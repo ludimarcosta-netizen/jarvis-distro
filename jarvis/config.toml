@@ -1,0 +1,12 @@
+[privacy]
+# 0 keeps transcript history. A positive value removes transcript rows older than N days
+# when the Jarvis database is initialized. Meeting summaries are never pruned here.
+transcript_retention_days = 0
+
+[cerebro]
+# Segundo Cérebro (notas compartilhadas com as outras IAs). Pasta inexistente desliga o registro nas fichas.
+path = '__JARVIS_CEREBRO_BS__'
+
+# App "Jarvis" no painel de desenvolvedor do Spotify (Client ID é público; login PKCE, sem secret)
+[spotify]
+client_id = ""

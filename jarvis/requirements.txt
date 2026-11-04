@@ -1,0 +1,12 @@
+numpy==2.4.6
+sounddevice==0.5.6
+scipy==1.17.1
+pyaudiowpatch==0.2.12.8
+faster-whisper==1.2.1
+openwakeword==0.6.0
+google-genai==2.25.0
+nvidia-cublas-cu12==12.9.2.10
+nvidia-cudnn-cu12==9.26.0.51
+pycaw==20260927
+psutil==7.2.2
+comtypes==1.4.17

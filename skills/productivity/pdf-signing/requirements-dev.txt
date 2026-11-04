@@ -1,0 +1,5 @@
+-r requirements.txt
+reportlab==4.5.1
+ruff==0.17.1
+fastapi==0.143.2
+websockets==16.1.1

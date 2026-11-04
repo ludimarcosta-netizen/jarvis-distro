@@ -1,0 +1,109 @@
+# O que a exportação copia da instância de origem para o repositório.
+# Só entra o que está listado aqui (lista de permitidos).
+# Valores pessoais e regras de substituição NÃO ficam aqui: ficam no arquivo de regras local,
+# fora do repositório (padrão: %LOCALAPPDATA%\hermes\jarvis\exportacao_regras.toml).
+
+# Pastas do repositório recriadas a cada exportação. O resto (installer/, templates/, export/) não é tocado.
+geradas = ["jarvis", "plugins", "desktop-plugins", "voice_identity", "skins", "skills", "hermes-patches"]
+
+# Arquivos ignorados mesmo quando casam com um "incluir" (casamento por fnmatch no caminho relativo, com /).
+excluir = [
+  "*__pycache__*", "*.pyc", "*.pyo", "*.bak*", "*.lock", "*.log", "*.tmp",
+  "*.db", "*.db-*", "*.sqlite*", "*.pid",
+  "*/.git/*", ".git/*", "*/.venv*", "*node_modules*", "*/.pytest_cache*", "*/.ruff_cache*",
+  "*/data/*", "*/logs/*", "*/backups/*",
+  "*aliases.json", "*apps_cache.json", "*contacts*.json", "*token*.json", "*.env", "*.web_token",
+]
+
+[[copiar]]
+de = "jarvis"
+para = "jarvis"
+incluir = [
+  "*.py", "*.cmd", "*.ps1", "config.toml", "jarvis_tts_persona.md", "requirements*.txt",
+  "voice_mode.example.json", "web/**/*", "scripts/**/*", "tests/**/*", "voice_phrases/*",
+]
+
+[[copiar]]
+de = "voice_identity"
+para = "voice_identity"
+incluir = ["*.py", "README.md", "settings.example.json", "requirements.txt"]
+
+[[copiar]]
+de = "plugins"
+para = "plugins"
+incluir = ["gemini-live-bridge/**/*", "antigravity-oauth/**/*", "homeassistant/**/*"]
+
+[[copiar]]
+de = "desktop-plugins"
+para = "desktop-plugins"
+incluir = ["gemini-live-bridge/**/*"]
+
+[[copiar]]
+de = "skins"
+para = "skins"
+incluir = ["jarvis.yaml"]
+
+# Persona padrão: o SOUL.md sem o bloco do Cerebro (a etapa do Cerebro escreve o bloco do usuário).
+[[copiar]]
+de = "."
+para = "templates"
+incluir = ["SOUL.md"]
+cortar_em = "<!-- CEREBRO_START -->"
+
+# Pilha do WhatsApp (Evolution API em Docker): modelo para o instalador; o .env real nunca vai.
+[[copiar]]
+de = "%USERPROFILE%/Projects/evolution-whatsapp"
+para = "templates/evolution-whatsapp"
+incluir = ["docker-compose.yml", ".gitignore", "sistema/.env.example", "sistema/conectar.py"]
+
+# Numeração de ofícios da skill prefeitura (só o script; a base oficios.json é de cada usuário).
+[[copiar]]
+de = "%USERPROFILE%/Documents/JARVIS_Records/oficios"
+para = "templates/oficios"
+incluir = ["oficios.py"]
+
+# Skills próprias (as do upstream vêm com o hermes-agent). centi-processos fica de fora (decisão de 03/11/2026).
+[[copiar]]
+de = "skills"
+para = "skills"
+incluir = [
+  "prefeitura/**/*",
+  "jarvis-video-overlays/**/*",
+  "creative/higgsfield/**/*",
+  "media/openchatcut/**/*",
+  "media/video-use/**/*",
+  "productivity/abrir/**/*",
+  "productivity/goias-election-reporting/**/*",
+  "productivity/jarvis-meetings/**/*",
+  "productivity/jarvis-procedure-learning/**/*",
+  "productivity/pdf-signing/**/*",
+  "productivity/pdf-signing-local/**/*",
+  "productivity/whatsapp-automation/**/*",
+  "productivity/whatsapp-evolution/**/*",
+  "social-media/zernio/**/*",
+  "software-development/reverse-engineer-anything/**/*",
+]
+
+# Alterações sobre o upstream (face do Jarvis etc.): diff da árvore de trabalho contra a base + arquivos novos.
+[hermes]
+repo = "hermes-agent"
+base = "main"
+para = "hermes-patches"
+
+# Padrões de segredo: qualquer ocorrência barra a exportação.
+[segredos]
+padroes = [
+  'AIza[0-9A-Za-z_\-]{35}',
+  'sk-[A-Za-z0-9_\-]{20,}',
+  'sk-ant-[A-Za-z0-9_\-]{20,}',
+  'gh[pousr]_[A-Za-z0-9]{30,}',
+  'xox[abprs]-[A-Za-z0-9\-]{10,}',
+  '-----BEGIN [A-Z ]*PRIVATE KEY-----',
+  '\b\d{8,10}:AA[0-9A-Za-z_\-]{30,}\b',
+  'ya29\.[0-9A-Za-z_\-]{20,}',
+  '1//0[0-9A-Za-z_\-]{30,}',
+]
+# Chaves falsas usadas em testes (conferidas à mão), no formato "arquivo:linha".
+falsos_positivos = [
+  "jarvis/tests/test_session_harvest.py:23",
+]

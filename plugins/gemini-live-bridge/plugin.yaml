@@ -1,0 +1,11 @@
+name: gemini-live-bridge
+version: 1.5.0-jarvis-local
+description: Jarvis voice with local Whisper transcription, guarded Hermes sessions and F5-TTS speech. Preserves ambient capture, task history, screen approval and cancellation. Gemini transport remains available for explicit rollback.
+manifest_version: 1
+kind: backend
+author: cruzlxyz
+license: MIT
+homepage: https://github.com/cruzlxyz/gemini-live-bridge
+capabilities: []
+requires_env: []
+python_dependencies: []

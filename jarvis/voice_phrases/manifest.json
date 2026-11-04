@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "clips": [
+    {
+      "file": "certo.wav",
+      "text": "Certo.",
+      "bridge": true,
+      "source": "[Jarvis (UCM) - Português Brasileiro]certo.mp3",
+      "origin": "recovered"
+    },
+    {
+      "file": "deixa-eu-ver.wav",
+      "text": "Deixa eu ver aqui.",
+      "bridge": true,
+      "source": "[Jarvis (UCM) - Português Brasileiro]Deixa......aqui..mp3",
+      "origin": "recovered"
+    },
+    {
+      "file": "um-momento.wav",
+      "text": "Um momento, senhor.",
+      "bridge": true,
+      "origin": "local-f5-tts",
+      "reference": "models/voice/reference-online-7s.wav",
+      "validation": "local-whisper-small"
+    },
+    {
+      "file": "pedido-recebido.wav",
+      "text": "Pedido recebido, senhor.",
+      "bridge": true,
+      "origin": "local-f5-tts",
+      "reference": "models/voice/reference-online-7s.wav",
+      "validation": "local-whisper-small"
+    },
+    {
+      "file": "a-disposicao.wav",
+      "text": "À disposição, senhor.",
+      "bridge": false,
+      "origin": "local-f5-tts",
+      "reference": "models/voice/reference-online-7s.wav",
+      "validation": "local-whisper-small"
+    },
+    {
+      "file": "estou-ouvindo.wav",
+      "text": "Estou ouvindo, senhor.",
+      "bridge": false,
+      "origin": "local-f5-tts",
+      "reference": "models/voice/reference-online-7s.wav",
+      "validation": "local-whisper-small"
+    },
+    {
+      "file": "ate-a-proxima.wav",
+      "text": "Até a próxima, senhor.",
+      "bridge": false,
+      "origin": "local-f5-tts",
+      "reference": "models/voice/reference-online-7s.wav",
+      "validation": "local-whisper-small"
+    }
+  ],
+  "recovered_originals": [
+    {
+      "file": "recovered/[Jarvis (UCM) - Português Brasileiro]Certo,.mp3",
+      "sha256": "dee80998ae6816557fc2cf45c18c3abeb5314469f2ba58e9c7a64a918778d42e"
+    },
+    {
+      "file": "recovered/[Jarvis (UCM) - Português Brasileiro]certo.mp3",
+      "sha256": "340f23f2da4195ff511ec4c85d83303d5dea53266e9812ee423f0fa4f3decdb0"
+    },
+    {
+      "file": "recovered/[Jarvis (UCM) - Português Brasileiro]deixa......aqui,.mp3",
+      "sha256": "17f81b9d83f1ab39ac1b308969f187789a2bfa53be0250180c79a22cf4cbce30"
+    },
+    {
+      "file": "recovered/[Jarvis (UCM) - Português Brasileiro]Deixa......aqui..mp3",
+      "sha256": "e8404f42a6b5a703ab3cc2f280dda98a5e22204a6c2cd770cb5b785015aa3da1"
+    },
+    {
+      "file": "recovered/[Jarvis (UCM) - Português Brasileiro]já es......ando!.mp3",
+      "sha256": "6e473b7238001e1d3b907dbf517478607275fee37c4338f1b0d24bc8529147b0"
+    },
+    {
+      "file": "recovered/[Jarvis (UCM) - Português Brasileiro]já es......ando,.mp3",
+      "sha256": "7b545c82136ecece8b26ea7b2bd43f9981ba11d78cdfb56e5c6f3d3fc0f55a68"
+    },
+    {
+      "file": "recovered/[Jarvis (UCM) - Português Brasileiro]Lá el......nhor..mp3",
+      "sha256": "270a537e691a2bdd059c712a5aa0c88bfa88c5e69636a70424f50b1da753fc99"
+    },
+    {
+      "file": "recovered/[Jarvis (UCM) - Português Brasileiro]só ma......ouco,.mp3",
+      "sha256": "47e1e13de31e438be746728b4689741ed0146d707d453bc16bb42b6e0c4c2312"
+    },
+    {
+      "file": "recovered/[Jarvis (UCM) - Português Brasileiro]Só ma......ouco..mp3",
+      "sha256": "543ea640ecd1a611b5e69da696b3e26e20ecc6524415f8007fb0566f8b30d9f2"
+    },
+    {
+      "file": "recovered/[Jarvis (UCM) - Português Brasileiro]urrum,.mp3",
+      "sha256": "f299fcb9c48a74843c2e2400053180f824d1a603bd4c287dd73455bef7864d1c"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Isolated application runtime: jarvis/.venv-voice, not the Hermes interpreter.
+# Install torch/torchaudio first from https://download.pytorch.org/whl/cu124.
+torch==2.6.0
+torchaudio==2.6.0
+f5-tts==1.1.22
+safetensors==0.5.3
+transformers==4.51.3
