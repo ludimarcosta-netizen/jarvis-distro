@@ -49,3 +49,7 @@ O Jarvis aplica alterações no Hermes num ramo local `jarvis`. Por isso `hermes
 
 - `export/`: gera este repositório a partir de uma instância real, sem dados pessoais (ver `export/README.md`).
 - `installer/`: menu e etapas (Python só com biblioteca padrão). Testes: `python -m unittest discover -s installer/tests`.
+
+## Licenças
+
+Avisos de terceiros em [NOTICE.md](NOTICE.md).
